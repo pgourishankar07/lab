@@ -3,10 +3,10 @@ import java.net.*;
 
 public class Server {
     public static void main(String[] args) throws Exception {
-        ServerSocket server = new ServerSocket(8000);
-        Socket socket = server.accept();
+        ServerSocket ss = new ServerSocket(8000);
+        Socket s = ss.accept();
 
-        InputStream is = socket.getInputStream();
+        InputStream is = s.getInputStream();
         FileOutputStream fos = new FileOutputStream("output.txt");
 
         byte[] buffer = new byte[4096];
@@ -17,7 +17,7 @@ public class Server {
         }
 
         fos.close();
-        socket.close();
-        server.close();
+        s.close();
+        ss.close();
     }
 }
