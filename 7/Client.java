@@ -3,9 +3,9 @@ import java.net.*;
 
 public class Client {
     public static void main(String[] args) throws Exception {
-        Socket socket = new Socket("localhost", 8000);
+        Socket s = new Socket("localhost", 8000);
 
-        OutputStream os = socket.getOutputStream();
+        OutputStream os = s.getOutputStream();
         FileInputStream fis = new FileInputStream("input.txt");
 
         byte[] buffer = new byte[4096];
@@ -17,6 +17,6 @@ public class Client {
 
         os.close();
         fis.close();
-        socket.close();
+        s.close();
     }
 }
